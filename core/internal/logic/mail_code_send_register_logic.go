@@ -26,7 +26,7 @@ func NewMailCodeSendRegisterLogic(ctx context.Context, svcCtx *svc.ServiceContex
 
 func (l *MailCodeSendRegisterLogic) MailCodeSendRegister(req *types.MailCodeRequest) (resp *types.MailCodeReply, err error) {
 	//邮箱未被注册
-	cnt, err := models.Engine.Where("email = ?", req.Email).Count(new(models.UserBasic))
+	cnt, err := l.svcCtx.Engine.Where("email = ?", req.Email).Count(new(models.UserBasic))
 	if err != nil {
 		return
 	}

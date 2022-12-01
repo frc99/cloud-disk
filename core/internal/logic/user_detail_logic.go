@@ -28,7 +28,7 @@ func NewUserDetailLogic(ctx context.Context, svcCtx *svc.ServiceContext) *UserDe
 func (l *UserDetailLogic) UserDetail(req *types.UserDetailRequest) (resp *types.UserDetailReply, err error) {
 	resp = &types.UserDetailReply{}
 	userbasic := new(models.UserBasic)
-	ok, err := models.Engine.Where("identity = ?", req.Identity).Get(userbasic)
+	ok, err := l.svcCtx.Engine.Where("identity = ?", req.Identity).Get(userbasic)
 
 	if err != nil {
 		return nil, err

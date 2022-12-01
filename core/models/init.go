@@ -7,11 +7,11 @@ import (
 	"xorm.io/xorm"
 )
 
-var Engine = Init()
+// var Engine = Init()
 var Rdb = InitRedis()
 
-func Init() *xorm.Engine {
-	engine, err := xorm.NewEngine("mysql", "root:541999@/cloud-disk?charset=utf8")
+func Init(dataSource string) *xorm.Engine {
+	engine, err := xorm.NewEngine("mysql", dataSource)
 	if err != nil {
 		log.Printf("Xorm New Engine error:%v", err)
 		return nil
