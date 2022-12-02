@@ -12,10 +12,6 @@ type UserFile struct {
 }
 
 type FileUploadChunkCompleteRequest struct {
-	Md5        string      `json:"md5"`
-	Name       string      `json:"name"`
-	Ext        string      `json:"ext"`
-	Size       int64       `json:"size"`
 	Key        string      `json:"key"`
 	UploadId   string      `json:"upload_id"`
 	CosObjects []CosObject `json:"cos_objects"`
